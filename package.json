@@ -1,0 +1,21 @@
+{
+	"name": "quick-copy-block",
+	"version": "1.0.0",
+	"description": "A Gutenberg block for one-click copy-to-clipboard.",
+	"author": "Robeen",
+	"license": "GPL-2.0-or-later",
+	"private": true,
+	"scripts": {
+		"build":           "wp-scripts build --webpack-copy-php --config webpack.config.js",
+		"start":           "wp-scripts start --config webpack.config.js",
+		"lint:js":         "wp-scripts lint-js",
+		"lint:css":        "wp-scripts lint-style",
+		"lint:php":        "composer run lint",
+		"format":          "wp-scripts format",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip":      "wp-scripts plugin-zip"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^30.0.0"
+	}
+}

@@ -1,0 +1,79 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "quick-copy-block/quick-copy-block",
+	"version": "1.2.1",
+	"title": "Quick Copy Block",
+	"category": "text",
+	"icon": "clipboard",
+	"description": "Add a one-click copy-to-clipboard button to any text — quotes, code snippets, and more.",
+	"keywords": [
+		"copy",
+		"clipboard",
+		"quick copy",
+		"snippet",
+		"quote",
+		"code"
+	],
+	"textdomain": "quick-copy-block",
+	"attributes": {
+		"content": {
+			"type": "string",
+			"source": "html",
+			"selector": ".clipt-block__content",
+			"default": ""
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "Copy"
+		},
+		"successMessage": {
+			"type": "string",
+			"default": "Copied!"
+		},
+		"buttonBgColor": {
+			"type": "string",
+			"default": "#6c8fff"
+		},
+		"buttonTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"theme": {
+			"type": "string",
+			"default": "theme-1"
+		},
+		"label": {
+			"type": "string",
+			"default": ""
+		},
+		"showLabel": {
+			"type": "boolean",
+			"default": true
+		},
+		"showSymbolIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"showCopyIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"inputClickToCopy": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"editorScript": "file:./build/index.js",
+	"editorStyle":  "file:./build/index.css",
+	"style":        "file:./build/style-index.css",
+	"viewScript":   "file:./build/frontend.js"
+}

@@ -1,0 +1,211 @@
+/**
+ * Clipt — Shared styles (front end + editor). All 10 themes.
+ */
+
+// ── Design tokens ────────────────────────────────────────────────────────────
+$clipt-radius-box:   12px;
+$clipt-radius-btn:   8px;
+$clipt-radius-pill:  50px;
+$clipt-border:       1.5px solid #d0d5dd;
+$clipt-gap:          12px;
+$clipt-pad-box:      12px 16px;
+$clipt-pad-btn:      10px 18px;
+$clipt-transition:   opacity 0.25s ease, transform 0.1s ease;
+
+// ── Block wrapper ─────────────────────────────────────────────────────────────
+.clipt-block { width: 100%; }
+
+// ── Optional label ────────────────────────────────────────────────────────────
+.clipt-block__label {
+	font-size:     0.8125rem;
+	font-weight:   600;
+	margin-bottom: 6px;
+	color:         #344054;
+}
+
+// ── Shared button base ────────────────────────────────────────────────────────
+.clipt-block__button {
+	display:         inline-flex;
+	align-items:     center;
+	justify-content: center;
+	gap:             6px;
+	border:          none;
+	border-radius:   $clipt-radius-btn;
+	padding:         $clipt-pad-btn;
+	font-size:       0.9375rem;
+	font-weight:     600;
+	line-height:     1;
+	cursor:          pointer;
+	white-space:     nowrap;
+	transition:      $clipt-transition;
+	svg { flex-shrink: 0; }
+	&:hover:not(:disabled)  { filter: brightness(1.1); }
+	&:active:not(:disabled) { transform: scale(0.97); }
+	&:focus-visible         { outline: 3px solid currentColor; outline-offset: 3px; }
+	&--fade                 { opacity: 0; }
+}
+.clipt-block__button-label { pointer-events: none; }
+
+// ── Shared box (themes 1–3, 5) ────────────────────────────────────────────────
+.clipt-theme__box {
+	display:       flex;
+	align-items:   center;
+	width:         100%;
+	border:        $clipt-border;
+	border-radius: $clipt-radius-box;
+	overflow:      hidden;
+}
+
+.clipt-block__content {
+	flex:        1;
+	min-width:   0;
+	padding:     $clipt-pad-box;
+	word-break:  break-word;
+	color:       #667085;
+	font-size:   1rem;
+	line-height: 1.5;
+}
+
+// ── Shared pill base (themes 4, 6–10) ─────────────────────────────────────────
+.clipt-theme__pill {
+	display:         inline-flex;
+	align-items:     center;
+	justify-content: space-between;
+	gap:             12px;
+	padding:         14px 22px;
+	border:          none;
+	border-radius:   $clipt-radius-pill;
+	cursor:          pointer;
+	font-size:       1rem;
+	font-weight:     600;
+	transition:      $clipt-transition;
+	width:           auto;
+
+	&:hover:not(:disabled)  { filter: brightness(1.08); }
+	&:active:not(:disabled) { transform: scale(0.98); }
+	&:focus-visible         { outline: 3px solid currentColor; outline-offset: 3px; }
+}
+
+.clipt-theme__pill-content {
+	flex:           1;
+	text-align:     center;
+	color:          inherit;
+	pointer-events: none;
+}
+
+.clipt-theme__pill-icon-left,
+.clipt-theme__pill-icon-right {
+	display:     flex;
+	align-items: center;
+	flex-shrink: 0;
+	opacity:     0.9;
+}
+
+// ── Theme 1: button inside box right ─────────────────────────────────────────
+.clipt-theme--1 {
+	.clipt-theme__btn-wrap { padding: 6px; flex-shrink: 0; }
+	.clipt-block__button   { border-radius: $clipt-radius-box - 2px; }
+}
+
+// ── Theme 2: button outside left, pill box ────────────────────────────────────
+.clipt-theme--2 {
+	.clipt-theme__box      { border-radius: $clipt-radius-pill; }
+	.clipt-theme__btn-wrap { padding: 4px; flex-shrink: 0; }
+	.clipt-block__button   { border-radius: $clipt-radius-pill; }
+	.clipt-block__content  { text-align: center; }
+}
+
+// ── Theme 3: box + button separated ──────────────────────────────────────────
+.clipt-theme--3 {
+	.clipt-theme__row {
+		display:     flex;
+		align-items: stretch;
+		gap:         $clipt-gap;
+		width:       100%;
+	}
+	.clipt-theme__box     { flex: 1; }
+	.clipt-theme__btn-wrap {
+		flex-shrink: 0;
+		.clipt-block__button { height: 100%; border-radius: $clipt-radius-btn; }
+	}
+}
+
+// ── Theme 4: pink–red–orange gradient pill ────────────────────────────────────
+.clipt-theme--4 {
+	.clipt-theme__pill {
+		background: linear-gradient(135deg, #f857a6 0%, #ff5858 50%, #ff7b4f 100%);
+		color:      #ffffff;
+	}
+}
+
+// ── Theme 5: stacked — box on top, centred button below ──────────────────────
+.clipt-theme--5 {
+	display:        flex;
+	flex-direction: column;
+	gap:            12px;
+
+	.clipt-theme__box--full {
+		width: 100%;
+		border-radius: $clipt-radius-pill;
+	}
+	.clipt-theme__btn-wrap--center {
+		display:         flex;
+		justify-content: center;
+		.clipt-block__button {
+			min-width:     200px;
+			border-radius: $clipt-radius-btn;
+		}
+	}
+}
+
+// ── Theme 6: blue solid pill — mail icon ─────────────────────────────────────
+.clipt-theme--6 {
+	.clipt-theme__pill {
+		background: #6c8fff;
+		color:      #ffffff;
+	}
+}
+
+// ── Theme 7: light grey rounded box — globe icon, dark text ──────────────────
+.clipt-theme--7 {
+	.clipt-theme__pill {
+		background:    #f2f4f7;
+		color:         #1d2939;
+		border-radius: $clipt-radius-box;
+		border:        $clipt-border;
+	}
+}
+
+// ── Theme 8: dark navy pill — code icon, green text ──────────────────────────
+.clipt-theme--8 {
+	.clipt-theme__pill {
+		background: #0d1117;
+		color:      #3fb950;
+	}
+}
+
+// ── Theme 9: lavender pill — hash icon, purple text ──────────────────────────
+.clipt-theme--9 {
+	.clipt-theme__pill {
+		background: #ede9fe;
+		color:      #6d28d9;
+	}
+}
+
+// ── Theme 10: light grey box, blue border — key icon, blue text ──────────────
+.clipt-theme--10 {
+	.clipt-theme__pill {
+		background:    #f0f4ff;
+		color:         #2563eb;
+		border-radius: $clipt-radius-box;
+		border:        1.5px solid #93c5fd;
+	}
+}
+
+// ── Wide / Full alignment ─────────────────────────────────────────────────────
+.clipt-block.alignwide,
+.clipt-block.alignfull {
+	.clipt-theme__box,
+	.clipt-theme__row  { width: 100%; }
+	.clipt-theme__pill { width: 100%; }
+}
