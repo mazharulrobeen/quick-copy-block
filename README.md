@@ -1,4 +1,4 @@
-# Clipt — Developer Notes
+# Quick Copy Block — Developer Notes
 
 ## Requirements
 
